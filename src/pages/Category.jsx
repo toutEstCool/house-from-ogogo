@@ -22,15 +22,20 @@ const Category = () => {
 	useEffect(() => {
 		const fetchListings = async () => {
 			try {
+				// Get reference
 				const listingsRef = collection(db, 'listings')
 
+				// Create a query
 				const q = query(
 					listingsRef,
 					where('type', '==', params.categoryName),
 					orderBy('timestamp', 'desc'),
 					limit(10)
 				)
+
+				// Execute query
 				const querySnap = await getDocs(q)
+
 				const listings = []
 
 				querySnap.forEach(doc => {
@@ -42,17 +47,21 @@ const Category = () => {
 				setListings(listings)
 				setLoading(false)
 			} catch (error) {
-				toast.error('Error 404')
+				toast.error('Could not fetch listings')
 			}
 		}
 		fetchListings()
 	}, [params.categoryName])
-
 	return (
 		<div className='category'>
 			<header>
-				<p className='pageHeader'>Rent</p>
+				<p className='pageHeader'>
+					{params.categoryName === 'rent'
+						? 'Places for rent'
+						: 'Places for sale'}
+				</p>
 			</header>
+
 			{loading ? (
 				<Spinner />
 			) : listings && listings.length > 0 ? (
