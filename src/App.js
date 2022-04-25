@@ -10,8 +10,9 @@ import Profile from './pages/Profile.jsx'
 import Category from './pages/Category.jsx'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx'
 import CreateListing from './pages/CreateListing.jsx'
-import 'react-toastify/dist/ReactToastify.css'
 import Listing from './pages/Listing.jsx'
+import Contact from './pages/Contact.jsx'
+import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
 	return (
@@ -33,6 +34,7 @@ const App = () => {
 						path='/category/:categoryName/:listingId'
 						element={<Listing />}
 					/>
+					<Route path='/contact/:landlordId' element={<Contact />} />
 				</Routes>
 				<NavBar />
 			</Router>
