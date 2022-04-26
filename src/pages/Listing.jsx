@@ -87,7 +87,7 @@ const Listing = () => {
 				<div className='leafletContainer'>
 					<MapContainer
 						style={{ height: '100%', width: '100%' }}
-						// center={[listing.geolocation.lat, listing.geolocation.lng]}
+						center={[listing.geolocation.lat, listing.geolocation.lng]}
 						zoom={13}
 						scrollWheelZoom={false}
 					>
@@ -97,7 +97,7 @@ const Listing = () => {
 						/>
 
 						<Marker
-						// position={[listing.geolocation.lat, listing.geolocation.lng]}
+							position={[listing.geolocation.lat, listing.geolocation.lng]}
 						>
 							<Popup>{listing.location}</Popup>
 						</Marker>
