@@ -225,9 +225,9 @@ function CreateListing() {
 					<div className='formButtons'>
 						<button
 							type='button'
-							className={type === 'sale' ? 'formButtonActive' : 'formButton'}
+							className={type === 'sell' ? 'formButtonActive' : 'formButton'}
 							id='type'
-							value='sale'
+							value='sell'
 							onClick={onMutate}
 						>
 							Sell
