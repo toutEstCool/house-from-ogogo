@@ -29,7 +29,6 @@ const Listing = () => {
 				setLoading(false)
 			}
 		}
-		console.log(listing)
 		fetchListing()
 	}, [navigate, params.listingId])
 
